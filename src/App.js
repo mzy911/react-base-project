@@ -1,7 +1,12 @@
+import React from 'react';
 function App() {
+
+  const text = 'Hello';
+
+  
   return (
     <div className="app">
-      Hello
+      {text}
     </div>
   );
 }
