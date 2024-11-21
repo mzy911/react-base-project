@@ -1,6 +1,7 @@
-import React from "react";
+import React from 'react';
 function App() {
-  const a = "false";
+  const a = 'false';
+
   return <div className="app">{a}</div>;
 }
 

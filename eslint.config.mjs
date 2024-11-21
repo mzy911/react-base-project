@@ -2,6 +2,7 @@ import globals from "globals";
 import pluginJs from "@eslint/js";
 import pluginReact from "eslint-plugin-react";
 import eslintConfigPrettier from "eslint-config-prettier";
+import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -39,4 +40,6 @@ export default [
   pluginReact.configs.flat.recommended,
   // 禁用所有与 Prettier 冲突的 ESLint 规则
   eslintConfigPrettier,
+  // 将 Prettier 的格式化规则转换为 ESLint 规则
+  eslintPluginPrettierRecommended,
 ];
