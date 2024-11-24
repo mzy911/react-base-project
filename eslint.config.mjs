@@ -9,6 +9,7 @@ import tsParser from '@typescript-eslint/parser';
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   {
+    // 必须配置：否则 eslint 不检测 ts 文件
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
       parser: tsParser,
