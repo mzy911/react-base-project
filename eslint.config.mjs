@@ -14,7 +14,9 @@ export default [
     languageOptions: {
       parser: tsParser,
     },
-    plugins: { '@typescript-eslint': tsPlugin },
+    plugins: {
+      '@typescript-eslint': tsPlugin,
+    },
     rules: {
       ...tsPlugin.configs.recommended.rules,
     },
@@ -39,12 +41,29 @@ export default [
   },
   {
     languageOptions: {
+      // 设置 ECMAScript 版本（例如 2021）
+      ecmaVersion: 2021,
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
         },
       },
-      globals: globals.browser,
+      // 设置环境（浏览器、Node.js 等）
+      globals: {
+        ...globals.browser,
+        // 支持 Node.js 环境
+        module: 'readonly',
+        process: 'readonly',
+        require: 'readonly',
+        __dirname: 'readonly',
+        // 支持 Jest 测试环境
+        test: 'readonly',
+        expect: 'readonly',
+        describe: 'readonly',
+        beforeEach: 'readonly',
+        afterEach: 'readonly',
+        HUSKY_GIT_PARAMS: 'readonly',
+      },
     },
   },
   // eslint 通用规则
