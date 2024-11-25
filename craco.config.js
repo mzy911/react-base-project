@@ -13,7 +13,16 @@ module.exports = {
   },
   babel: {
     presets: [],
-    plugins: [],
+    plugins: [
+      [
+        'import',
+        {
+          libraryName: 'antd',
+          libraryDirectory: 'es',
+          style: true, // `true` 会加载 less 文件
+        },
+      ],
+    ],
   },
   jest: {
     configure: (jestConfig) => {
