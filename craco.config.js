@@ -41,7 +41,7 @@ module.exports = {
       options: {
         lessLoaderOptions: {
           lessOptions: {
-            modifyVars: { '@primary-color': '#1DA57A' },
+            // modifyVars: { '@primary-color': '#1DA57A' },
             javascriptEnabled: true,
           },
         },
@@ -57,7 +57,7 @@ module.exports = {
       plugin: CracoAntDesignPlugin,
       options: {
         // 配置按需加载
-        customizeTheme: '@/styles/variables.less',
+        // customizeTheme: '@/styles/variables.less',
         // customizeTheme: {
         //   '@primary-color': '#1DA57A',
         // },

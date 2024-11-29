@@ -1,0 +1,109 @@
+// 1. 定义变量
+// src/styles/variables.less
+@primary-color: #1890ff;
+@font-size: 16px;
+@border-radius: 4px;
+@button-padding: 10px 20px;
+@button-class: btn-primary;
+
+
+//2. 使用变量作为类名
+//@import './styles/variables.less';
+.@{button-class} {
+  background-color: @primary-color;
+  font-size: @font-size;
+}
+.@{button-class}:hover {
+  background-color: darken(@primary-color, 10%);
+}
+
+//3. 嵌套规则
+.navbar {
+  background-color: #333;
+  color: white;
+  .navbar-item {
+    display: inline-block;
+    padding: 10px;
+  }
+}
+
+
+//4. 混合（Mixins）
+.rounded-corners(@radius: 4px) {
+  border-radius: @radius;
+}
+.button {
+  // 可以传递参数
+  .rounded-corners(6px);
+  background-color: @primary-color;
+  font-size: @font-size;
+  padding: 10px 20px;
+}
+
+
+//5. 函数：如颜色操作、数学运算等
+.button {
+  background-color: @primary-color;
+  color: white;
+  border: 1px solid darken(@primary-color, 10%);
+
+  &:hover {
+    background-color: lighten(@primary-color, 10%);
+  }
+}
+
+
+//6. 导入文件
+// main.less
+//@import 'variables.less';
+//@import 'mixins.less';
+.button {
+  .rounded-corners();
+  background-color: @primary-color;
+}
+
+
+//7. 命名空间
+#bundle {
+  .button {
+    background-color: @primary-color;
+    font-size: @font-size;
+  }
+  .link {
+    color: @primary-color;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+// 使用命名空间中的样式
+//@import './styles/variables.less';
+.my-button {
+  #bundle > .button;
+}
+.my-link {
+  #bundle > .link;
+}
+
+
+//8. 运算：Less 支持基本的数学运算
+@base-font-size: 16px;
+@padding: @base-font-size / 2;
+
+.button {
+  font-size: @base-font-size;
+  padding: @padding;
+}
+
+
+//9. 条件判断
+.large-button(@size: 20px) when (@size > 18px) {
+  font-size: @size;
+  padding: @size / 2;
+}
+.button {
+  .large-button(24px);
+  background-color: @primary-color;
+  color: white;
+}
